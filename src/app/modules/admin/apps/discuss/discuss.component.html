@@ -1,0 +1,61 @@
+<div class="flex flex-col flex-auto min-w-0">
+
+    <!-- Main -->
+    <div *ngIf="discuss | async as discuss" class="flex flex-auto justify-center w-full  m-auto  p-6 sm:p-8">
+
+        <!-- Column -->
+        <div class="flex items-start gap-4 grid sm:grid-cols-2 lg:grid-cols-3">
+
+            <!-- Review -->
+            <fuse-card
+                *ngFor="let i of getPost; index as index"
+                class="flex  max-w-140 h-100 w-full mt-8  "
+                #expandableCard02="fuseCard">
+                <div class="grid w-100">
+                    <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4 ">
+                        <img
+                            class="w-10 h-10 rounded-full mr-4 "
+                            [src]="i.imageProfile"
+                            alt="Card cover image">
+                        <div class="w-100">
+                            <span class="font-semibold leading-none">{{i.name}}</span>
+                        </div>
+                        <div class="w-100 d-flex justify-content-end " (click)="del(i.postId)">
+                            <mat-icon class="text-red-500" style="cursor:pointer;" svgIcon="heroicons_outline:trash"></mat-icon>
+                        </div>
+                        
+                    </div>
+                    <div class=" mx-6 sm:mx-8 mt-2 mb-6">
+                        <p>{{i.text.slice(0,100)}} <span data-bs-toggle="modal" [attr.data-bs-target]="'#id'+index" class="d-flex align-items-end fw-bold" style="cursor:pointer;">
+                            ShowMore
+                            <mat-icon
+                            class="icon-size-4 text-grey-500 mx-1"
+                            [svgIcon]="'heroicons_solid:dots-horizontal'"
+                        ></mat-icon> 
+                        </span></p>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" [id]="'id'+index" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" [id]="'Label'+index">{{i.name}}</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body" style="overflow-wrap: break-word;">
+                        <p class="lead">{{i.text}}</p>
+                        <img *ngIf="i.postImage.length" [src]="i.postImage" alt="postImage">
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </fuse-card>
+        </div>
+
+    </div>
+
+</div>

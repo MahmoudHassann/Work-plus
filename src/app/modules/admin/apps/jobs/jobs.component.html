@@ -1,0 +1,83 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Main -->
+    <div
+        *ngIf="Jobs | async as Jobs"
+        class="flex flex-auto justify-center w-full m-auto p-6 sm:p-8"
+    >
+        <!-- Column -->
+        <div class="flex items-start gap-4 grid sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Review -->
+            <fuse-card
+                *ngFor="let i of getJob; index as index"
+                class="flex max-w-140 w-full mt-8"
+                #expandableCard02="fuseCard"
+            >
+                <div class="grid">
+                    <div class="flex flex-col  mx-6 sm:mx-8 mt-6 mb-4">
+                        <img
+                            class="w-100 mr-4"
+                            [src]="i.companyPhoto"
+                            alt="Card cover image"
+                        />
+                        <div class="flex flex-col">
+                            <span class="font-semibold leading-none mt-4"
+                                >Title:- {{i.title}}</span
+                            >
+                            <span class="font-semibold leading-none mt-4"
+                                >JobType:- {{i.jobType}}</span
+                            >
+                            <span class="font-semibold leading-none mt-4"
+                                >Tags:- {{i.tags}}</span
+                            >
+                            <span class="font-semibold leading-none mt-4"
+                                >jobCategory:- {{i.jobCategory}}</span
+                            >
+                        </div>
+                    </div>
+                    <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                        <!-- //links -->
+                        <mat-icon svgIcon="heroicons_outline:location-marker"></mat-icon>
+                        <mat-icon svgIcon="heroicons_outline:home"></mat-icon>
+                    </div>
+                    <div class="items-center mx-3 pb-1 sm:mx-5">
+                        <button
+                            class="px-3 mr-1"
+                            mat-button
+                            [routerLink]="['./']"
+                        >
+                            <mat-icon
+                                class="icon-size-5 text-green-500 mr-2"
+                                [svgIcon]="'heroicons_solid:badge-check'"
+                            ></mat-icon>
+                            <span>REVIEWED</span>
+                        </button>
+                        <ng-template #grey>
+                            <button
+                                class="px-3 mr-1"
+                                mat-button
+                                [routerLink]="['./']"
+                            >
+                                <mat-icon
+                                    class="icon-size-5 text-grey-500 mr-2"
+                                    [svgIcon]="'heroicons_solid:badge-check'"
+                                ></mat-icon>
+                                <span>REVIEWED</span>
+                            </button>
+                        </ng-template>
+                        <button
+                            class="px-3 mr-1"
+                            mat-button
+                            [routerLink]="['./']"
+                        >
+                            <mat-icon
+                                class="icon-size-5 text-grey-500 mr-2"
+                                [svgIcon]="'heroicons_solid:dots-horizontal'"
+                            ></mat-icon>
+                            <span>ShowMore</span>
+                        </button>
+                    </div>
+                </div>
+            </fuse-card>
+        </div>
+    </div>
+</div>

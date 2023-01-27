@@ -1,0 +1,115 @@
+<div class="flex flex-col flex-auto min-w-0">
+    <!-- Main -->
+    <div
+        *ngIf="Reviews | async as Reviews"
+        class="flex flex-auto justify-center w-full m-auto p-6 sm:p-8"
+    >
+        <!-- Column -->
+        <div class="flex items-start gap-4 grid sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Review -->
+            <fuse-card
+                *ngFor="let i of getRev; index as index"
+                class="flex max-w-140 w-full mt-8"
+                #expandableCard02="fuseCard"
+            >
+            
+                <div class="grid">
+                    <div class="flex items-center mx-6 sm:mx-8 mt-6 mb-4">
+                        <img
+                            class="w-10 h-10 rounded-full mr-4"
+                            src="assets/images/avatars/profile avatar 3d.png"
+                            alt="Card cover image"
+                        />
+                        <div class="flex flex-col">
+                            <span class="font-semibold leading-none"
+                                >Annoymous User</span
+                            >
+                        </div>
+                    </div>
+                    <div class="mx-6 sm:mx-8 mt-2 mb-6">
+                        {{ i.title }}
+                    </div>
+                    <div class="items-center mx-3 pb-1 sm:mx-5">
+                        <button
+                            *ngIf="i.reviewed; else grey"
+                            class="px-3 mr-1"
+                            mat-button
+                            [routerLink]="['./']"
+                        >
+                            <mat-icon
+                                class="icon-size-5 text-green-500 mr-2"
+                                [svgIcon]="'heroicons_solid:badge-check'"
+                            ></mat-icon>
+                            <span>REVIEWED</span>
+                        </button>
+                        <ng-template #grey>
+                            <button
+                                (click)="update(i.PostId)"
+                                class="px-3 mr-1"
+                                mat-button
+                                [routerLink]="['./']"
+                            >
+                                <mat-icon
+                                    class="icon-size-5 text-grey-500 mr-2"
+                                    [svgIcon]="'heroicons_solid:badge-check'"
+                                ></mat-icon>
+                                <span>Not Reviewed</span>
+                            </button>
+                        </ng-template>
+                        <button
+                        data-bs-toggle="modal" [attr.data-bs-target]="'#id-' + i.PostId"
+                            class="px-3 mr-1"
+                            mat-button
+                            [routerLink]="['./']"
+                        >
+                            <mat-icon
+                                class="icon-size-5 text-grey-500 mr-2"
+                                [svgIcon]="'heroicons_solid:dots-horizontal'"
+                            ></mat-icon>
+                            <span>ShowMore</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div
+                    class="modal fade"
+                    [id]="'id-' + i.PostId"
+                    tabindex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                >
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" [id]="index">
+                                    {{i.title}}
+                                </h5>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-bs-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
+                            </div>
+                            <div class="modal-body">
+                                <p class="description">{{i.description}}</p>
+                                <div class="img" *ngIf="i.images.length">
+                                    <img *ngFor="let img of i.images" [src]="img" alt="images">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button
+                                    type="button"
+                                    class="btn btn-secondary"
+                                    data-bs-dismiss="modal"
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fuse-card>
+        </div>
+    </div>
+</div>
