@@ -22,7 +22,7 @@
             <ng-container *ngIf="profile.avatar">
                 <img
                     class="w-full h-full rounded-full object-cover"
-                    [src]="profile.avatar"
+                    src="assets/images/avatars/profile avatar 3d.png"
                     [alt]="'Profile avatar'">
             </ng-container>
             <ng-container *ngIf="!profile.avatar">
@@ -42,7 +42,9 @@
                     [svgIcon]="'heroicons_solid:user-circle'"></mat-icon>
                 <input
                     matInput
-                    [ngModel]="profile.name">
+                    value="Admin"
+                    
+                    >
             </mat-form-field>
             <mat-form-field>
                 <mat-label>Email</mat-label>
@@ -52,7 +54,7 @@
                     [svgIcon]="'heroicons_solid:mail'"></mat-icon>
                 <input
                     matInput
-                    [ngModel]="profile.email">
+                    value="Admin@admin.com">
             </mat-form-field>
             <mat-form-field>
                 <mat-label>About</mat-label>
