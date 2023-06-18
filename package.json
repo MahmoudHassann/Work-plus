@@ -6,7 +6,7 @@
     "license": "https://themeforest.net/licenses/standard",
     "private": true,
     "engines": {
-        "node": "16.18.0"
+        "node": "18.15.0"
     },
     "scripts": {
         "ng": "ng",
