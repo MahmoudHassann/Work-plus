@@ -17,12 +17,13 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 link : '/dashboards/project'
             },
             {
-                id   : 'dashboards.analytics',
-                title: 'Analytics',
+                id   : 'dashboards.finance',
+                title: 'Finance',
                 type : 'basic',
-                icon : 'heroicons_outline:chart-pie',
-                link : '/dashboards/analytics'
+                icon : 'heroicons_outline:cash',
+                link : '/dashboards/finance'
             },
+            
 ]},
     {
         id      : 'apps',
@@ -37,20 +38,6 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 type : 'basic',
                 icon : 'heroicons_outline:chat-alt',
                 link : '/apps/chat'
-            },
-            {
-                id   : 'apps.notes',
-                title: 'Notes',
-                type : 'basic',
-                icon : 'heroicons_outline:pencil-alt',
-                link : '/apps/notes'
-            },
-            {
-                id   : 'apps.tasks',
-                title: 'Tasks',
-                type : 'basic',
-                icon : 'heroicons_outline:check-circle',
-                link : '/apps/tasks'
             },
             {
                 id   : 'apps.reviews',
@@ -73,43 +60,40 @@ export const defaultNavigation: FuseNavigationItem[] = [
                 icon : 'heroicons_outline:archive',
                 link : '/apps/jobs'
             },
-            {
-                id      : 'apps.help-center',
-                title   : 'Help Center',
-                type    : 'collapsable',
-                icon    : 'heroicons_outline:support',
-                link    : '/apps/help-center',
-                children: [
-                    {
-                        id        : 'apps.help-center.home',
-                        title     : 'Home',
-                        type      : 'basic',
-                        link      : '/apps/help-center',
-                        exactMatch: true
-                    },
-                    {
-                        id   : 'apps.help-center.faqs',
-                        title: 'FAQs',
-                        type : 'basic',
-                        link : '/apps/help-center/faqs'
-                    },
-                    {
-                        id   : 'apps.help-center.guides',
-                        title: 'Guides',
-                        type : 'basic',
-                        link : '/apps/help-center/guides'
-                    },
-                    {
-                        id   : 'apps.help-center.support',
-                        title: 'Support',
-                        type : 'basic',
-                        link : '/apps/help-center/support'
-                    }
-                ]
-            },
+            
             
         ]
     },
+    {
+        id      : 'Freelance',
+        title   : 'Freelance',
+        subtitle: '',
+        type    : 'group',
+        icon    : 'heroicons_outline:home',
+        children: [
+            {
+                id   : 'apps.freelance',
+                title: 'freelance',
+                type : 'basic',
+                icon : 'heroicons_outline:check-circle',
+                link : '/apps/freelance'
+            },
+            {
+                id   : 'apps.categories',
+                title: 'categories',
+                type : 'basic',
+                icon : 'heroicons_outline:check-circle',
+                link : '/apps/categories'
+            },
+            {
+                id   : 'apps.subcategories',
+                title: 'subcategories',
+                type : 'basic',
+                icon : 'heroicons_outline:check-circle',
+                link : '/apps/subcategories'
+            },
+            
+]}
     
    
 ];

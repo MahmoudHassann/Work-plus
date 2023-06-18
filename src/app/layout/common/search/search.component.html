@@ -46,8 +46,8 @@
                         <ng-container *ngIf="resultSet.id === 'pages'">
                             <ng-container *ngTemplateOutlet="pageResult; context: {$implicit: result}"></ng-container>
                         </ng-container>
-                        <!-- Tasks -->
-                        <ng-container *ngIf="resultSet.id === 'tasks'">
+                        <!-- freelance -->
+                        <ng-container *ngIf="resultSet.id === 'freelance'">
                             <ng-container *ngTemplateOutlet="taskResult; context: {$implicit: result}"></ng-container>
                         </ng-container>
                     </mat-option>
@@ -102,8 +102,8 @@
                         <ng-container *ngIf="resultSet.id === 'pages'">
                             <ng-container *ngTemplateOutlet="pageResult; context: {$implicit: result}"></ng-container>
                         </ng-container>
-                        <!-- Tasks -->
-                        <ng-container *ngIf="resultSet.id === 'tasks'">
+                        <!-- freelance -->
+                        <ng-container *ngIf="resultSet.id === 'freelance'">
                             <ng-container *ngTemplateOutlet="taskResult; context: {$implicit: result}"></ng-container>
                         </ng-container>
                     </mat-option>

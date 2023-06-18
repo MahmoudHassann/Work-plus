@@ -1,0 +1,90 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3 mt-4" *ngFor="let cat of categories">
+            <div
+                class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+            >
+                <a>
+                    <img
+                        class="p-8 rounded-t-lg img-fluid"
+                        [src]="
+                            cat.urlPhoto
+                                ? cat.urlPhoto
+                                : 'assets/images/favIcon/android-chrome-192x192.png'
+                        "
+                        alt="product image"
+                    />
+                </a>
+                <div class="px-5 pb-5">
+                    <a>
+                        <h5
+                            class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+                        >
+                            {{ cat.title }}
+                        </h5>
+                    </a>
+
+                    <div class="flex items-center justify-between">
+                        <button
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
+                            type="button"
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                        >
+                            EDIT
+                        </button>
+                        <!-- Modal -->
+                        <div
+                            class="modal fade"
+                            id="exampleModal"
+                            tabindex="-1"
+                            aria-labelledby="exampleModalLabel"
+                            aria-hidden="true"
+                        >
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5
+                                            class="modal-title"
+                                            id="exampleModalLabel"
+                                        >
+                                            EDIT Category
+                                        </h5>
+                                        <button
+                                            type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal"
+                                            aria-label="Close"
+                                        ></button>
+                                    </div>
+                                    <form action="">
+                                    <div class="modal-body">
+                                        <label for="staticEmail" class="col-sm-2 col-form-label">TITLE</label>
+                                        <input class="form-control" type="text" placeholder="Default input" aria-label="default input example">
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button
+                                            type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal"
+                                        >
+                                            Close
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="btn btn-primary"
+                                        >
+                                            Update
+                                        </button>
+                                        <button type="button" class="btn btn-danger">Delete</button>
+                                    </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

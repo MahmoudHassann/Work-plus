@@ -275,7 +275,7 @@ export const project = {
         },
         {
             id    : 'c318e31f-1d74-49c5-8dae-2bc5805e2fdb',
-            avatar: 'assets/images/avatars/female00.jpg',
+            avatar: 'assets/images/avatars/Soha.jfif',
             name  : 'Soha Eid',
             email : 'martinrichards@mail.biz',
             phone : '+1-902-500-2668',
@@ -283,7 +283,7 @@ export const project = {
         },
         {
             id    : '0a8bc517-631a-4a93-aacc-000fa2e8294c',
-            avatar: 'assets/images/avatars/female00.jpg',
+            avatar: 'assets/images/avatars/Zeinb.jfif',
             name  : 'Zeinab Mohamed',
             email : 'candicemunoz@mail.co.uk',
             phone : '+1-838-562-2769',
@@ -291,7 +291,7 @@ export const project = {
         },
         {
             id    : 'a4c9945a-757b-40b0-8942-d20e0543cabd',
-            avatar: 'assets/images/avatars/female00.jpg',
+            avatar: 'assets/images/avatars/Esraa.jfif',
             name  : 'Esraa Taher',
             email : 'vickiemosley@mail.net',
             phone : '+1-939-555-3054',

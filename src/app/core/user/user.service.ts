@@ -65,6 +65,9 @@ export class UserService {
     getUsers(): Observable<any> {
         return this._httpClient.get(`${this.BaseURL}users`);
     }
+    getUser(id:any): Observable<any> {
+        return this._httpClient.post(`${this.BaseURL}user`,id);
+    }
 
     sendToAll(msg:any)
     {
@@ -99,5 +102,8 @@ export class UserService {
     }
     getJobs(): Observable<any> {
         return this._httpClient.get(`${this.BaseURL}getJobs`);
+    }
+    getProjects(): Observable<any> {
+        return this._httpClient.get(`${this.BaseURL}freelanceProjects`);
     }
 }

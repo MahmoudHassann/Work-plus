@@ -82,7 +82,7 @@ export class AuthService
                 
                 // Store the access token in the local storage
                 this.accessToken = response.token.accessToken;
-
+                
                 // Set the authenticated flag to true
                 this._authenticated = true;
 

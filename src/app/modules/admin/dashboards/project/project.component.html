@@ -1,77 +1,163 @@
-
 <div class="flex flex-col flex-auto min-w-0">
-      <!-- Modal -->
-    <div   class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal -->
+    <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+    >
         <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div >
-                <ul id="images">
-                    <div class="row ">
-                        <div class="col-4 d-flex flex-col justify-content-center">
-                            <li><img src="assets/images/avatars/male-01.jpg" class="mb-2" alt="Picture 1"></li>
-                            <li><img src="assets/images/avatars/male-02.jpg"  alt="Picture 2"></li>
-                        </div>
-                        <div class="col-8"><li><img src="{{obj.cardFace}}" alt="Picture 1" class="w-100" alt="Picture 3"></li></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">
+                        Modal title
+                    </h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <ul id="images">
+                            <div class="row">
+                                <div
+                                    class="col-4 d-flex flex-col justify-content-center"
+                                >
+                                    <li>
+                                        <img
+                                            src="assets/images/avatars/male-01.jpg"
+                                            class="mb-2"
+                                            alt="Picture 1"
+                                        />
+                                    </li>
+                                    <li>
+                                        <img
+                                            src="assets/images/avatars/male-02.jpg"
+                                            alt="Picture 2"
+                                        />
+                                    </li>
+                                </div>
+                                <div class="col-8">
+                                    <li>
+                                        <img
+                                            src="{{ obj.cardFace }}"
+                                            alt="Picture 1"
+                                            class="w-100"
+                                            alt="Picture 3"
+                                        />
+                                    </li>
+                                </div>
+                            </div>
+                        </ul>
                     </div>
-                </ul>
-              </div>
+                </div>
+                <div class="modal-footer">
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                    >
+                        Close
+                    </button>
+                    <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="verify()"
+                    >
+                        Verify
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" (click)="verify()">Verify</button>
-            </div>
-        </div>
         </div>
     </div>
-      <!-- Modal SendAll -->
-    <div  class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- Modal SendAll -->
+    <div
+        class="modal fade"
+        id="exampleModal2"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+    >
         <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel2">SendAll</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel2">SendAll</h5>
+                    <button
+                        type="button"
+                        class="btn-close"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                    ></button>
+                </div>
+                <form action="/" [formGroup]="MSG" (ngSubmit)="getmsg()">
+                    <div class="modal-body">
+                        <label for="">Title</label>
+                        <input
+                            formControlName="title"
+                            class="form-control mb-3"
+                            placeholder="Title Here"
+                            type="text"
+                        />
+                        <label for="">Body</label>
+                        <input
+                            formControlName="body"
+                            class="form-control mb-3"
+                            placeholder="Type MSg Here"
+                            type="text"
+                        />
+                    </div>
+                    <div class="modal-footer">
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                        <button type="submit" class="btn btn-primary">
+                            Send
+                        </button>
+                    </div>
+                </form>
             </div>
-            <form action="/" [formGroup]="MSG" (ngSubmit)="getmsg()">
-            <div class="modal-body">
-                    <label for="">Title</label>
-                    <input formControlName="title" class="form-control mb-3" placeholder="Title Here" type="text">
-                    <label for="">Body</label>
-                    <input formControlName="body" class="form-control mb-3" placeholder="Type MSg Here" type="text">
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Send</button>
-            </div>
-        </form>
-        </div>
         </div>
     </div>
     <!-- Header -->
     <div class="bg-card">
         <div class="flex flex-col w-full max-w-screen-xl mx-auto px-6 sm:px-8">
-            <div class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12">
+            <div
+                class="flex flex-col sm:flex-row flex-auto sm:items-center min-w-0 my-8 sm:my-12"
+            >
                 <!-- Avatar and name -->
                 <div class="flex flex-auto items-center min-w-0">
                     <div class="flex-0 w-16 h-16 rounded-full overflow-hidden">
                         <img
                             class="w-full h-full object-cover"
-                            src="assets/images/avatars/profile avatar 3d.png">
+                            src="assets/images/avatars/profile avatar 3d.png"
+                        />
                     </div>
                     <div class="flex flex-col min-w-0 ml-4">
                         <ng-container *transloco="let t">
-                            <div class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate">{{t('welcome-back')}}, Mahmoud! 
+                            <div
+                                class="text-2xl md:text-5xl font-semibold tracking-tight leading-7 md:leading-snug truncate"
+                            >
+                                {{ t("welcome-back") }}, Admin!
                             </div>
                         </ng-container>
                         <div class="flex items-center">
                             <mat-icon
                                 class="icon-size-5"
-                                [svgIcon]="'heroicons_solid:bell'"></mat-icon>
-                            <div class="ml-1.5 leading-6 truncate text-secondary">You have 2 new messages and 15 new tasks</div>
+                                [svgIcon]="'heroicons_solid:bell'"
+                            ></mat-icon>
+                            <div
+                                class="ml-1.5 leading-6 truncate text-secondary"
+                            >
+                                You have 2 new messages and 15 new freelance
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -80,19 +166,23 @@
                     <button
                         class="fuse-mat-button-rounded bg-accent-700"
                         mat-flat-button
-                        [color]="'accent'">
+                        [color]="'accent'"
+                    >
                         <mat-icon
                             class="icon-size-5"
-                            [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                            [svgIcon]="'heroicons_solid:mail'"
+                        ></mat-icon>
                         <span class="ml-2">Messages</span>
                     </button>
                     <button
                         class="fuse-mat-button-rounded"
                         mat-flat-button
-                        [color]="'primary'">
+                        [color]="'primary'"
+                    >
                         <mat-icon
                             class="icon-size-5"
-                            [svgIcon]="'heroicons_solid:cog'"></mat-icon>
+                            [svgIcon]="'heroicons_solid:cog'"
+                        ></mat-icon>
                         <span class="ml-2">Settings</span>
                     </button>
                 </div>
@@ -104,272 +194,158 @@
     <div class="flex-auto border-t -mt-px pt-4 sm:pt-6">
         <div class="w-full max-w-screen-xl mx-auto">
             <!-- Tabs -->
-            <mat-tab-group
-                class="sm:px-2"
-                [animationDuration]="'0'">
-
+            <mat-tab-group class="sm:px-2" [animationDuration]="'0'">
                 <!-- Home -->
                 <mat-tab label="Home">
                     <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 w-full min-w-0">
-                            <!-- Github issues summary -->
-                            <div class="sm:col-span-2 md:col-span-4 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                <div class="flex flex-col sm:flex-row items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Github Issues Summary</div>
-                                    <div class="mt-3 sm:mt-0 sm:ml-2">
-                                        <mat-button-toggle-group
-                                            value="this-week"
-                                            #githubIssuesWeekSelector="matButtonToggleGroup">
-                                            <mat-button-toggle value="last-week">Last Week</mat-button-toggle>
-                                            <mat-button-toggle value="this-week">This Week</mat-button-toggle>
-                                        </mat-button-toggle-group>
-                                    </div>
-                                </div>
-                                <div class="grid grid-cols-1 lg:grid-cols-2 grid-flow-row gap-6 w-full mt-8 sm:mt-4">
-                                    <!-- New vs. Closed -->
-                                    <div class="flex flex-col flex-auto">
-                                        <div class="font-medium text-secondary">New vs. Closed</div>
-                                        <div class="flex flex-col flex-auto">
-                                            <apx-chart
-                                                class="flex-auto w-full h-80"
-                                                [chart]="chartGithubIssues.chart"
-                                                [colors]="chartGithubIssues.colors"
-                                                [dataLabels]="chartGithubIssues.dataLabels"
-                                                [grid]="chartGithubIssues.grid"
-                                                [labels]="chartGithubIssues.labels"
-                                                [legend]="chartGithubIssues.legend"
-                                                [plotOptions]="chartGithubIssues.plotOptions"
-                                                [series]="chartGithubIssues.series[githubIssuesWeekSelector.value]"
-                                                [states]="chartGithubIssues.states"
-                                                [stroke]="chartGithubIssues.stroke"
-                                                [tooltip]="chartGithubIssues.tooltip"
-                                                [xaxis]="chartGithubIssues.xaxis"
-                                                [yaxis]="chartGithubIssues.yaxis"></apx-chart>
-                                        </div>
-                                    </div>
-                                    <!-- Overview -->
-                                    <div class="flex flex-col">
-                                        <div class="font-medium text-secondary">Overview</div>
-                                        <div class="flex-auto grid grid-cols-4 gap-4 mt-6">
-                                            <!-- New issues -->
-                                            <div class="col-span-2 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-indigo-50 text-indigo-800 dark:bg-white dark:bg-opacity-5 dark:text-indigo-400">
-                                                <div class="text-5xl sm:text-7xl font-semibold leading-none tracking-tight">
-                                                    {{data.githubIssues.overview[githubIssuesWeekSelector.value]['new-issues']}}
-                                                </div>
-                                                <div class="mt-1 text-sm sm:text-lg font-medium">New Issues</div>
-                                            </div>
-                                            <!-- Closed -->
-                                            <div class="col-span-2 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-green-50 text-green-800 dark:bg-white dark:bg-opacity-5 dark:text-green-500">
-                                                <div class="text-5xl sm:text-7xl font-semibold leading-none tracking-tight">
-                                                    {{data.githubIssues.overview[githubIssuesWeekSelector.value]['closed-issues']}}
-                                                </div>
-                                                <div class="mt-1 text-sm sm:text-lg font-medium">Closed</div>
-                                            </div>
-                                            <!-- Fixed -->
-                                            <div class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-gray-100 text-secondary dark:bg-white dark:bg-opacity-5">
-                                                <div class="text-5xl font-semibold leading-none tracking-tight">
-                                                    {{data.githubIssues.overview[githubIssuesWeekSelector.value]['fixed']}}
-                                                </div>
-                                                <div class="mt-1 text-sm font-medium text-center">Fixed</div>
-                                            </div>
-                                            <!-- Won't fix -->
-                                            <div class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-gray-100 text-secondary dark:bg-white dark:bg-opacity-5">
-                                                <div class="text-5xl font-semibold leading-none tracking-tight">
-                                                    {{data.githubIssues.overview[githubIssuesWeekSelector.value]['wont-fix']}}
-                                                </div>
-                                                <div class="mt-1 text-sm font-medium text-center">Won't Fix</div>
-                                            </div>
-                                            <!-- Re-opened -->
-                                            <div class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-gray-100 text-secondary dark:bg-white dark:bg-opacity-5">
-                                                <div class="text-5xl font-semibold leading-none tracking-tight">
-                                                    {{data.githubIssues.overview[githubIssuesWeekSelector.value]['re-opened']}}
-                                                </div>
-                                                <div class="mt-1 text-sm font-medium text-center">Re-opened</div>
-                                            </div>
-                                            <!-- Needs triage -->
-                                            <div class="col-span-2 sm:col-span-1 flex flex-col items-center justify-center py-8 px-1 rounded-2xl bg-gray-100 text-secondary dark:bg-white dark:bg-opacity-5">
-                                                <div class="text-5xl font-semibold leading-none tracking-tight">
-                                                    {{data.githubIssues.overview[githubIssuesWeekSelector.value]['needs-triage']}}
-                                                </div>
-                                                <div class="mt-1 text-sm font-medium text-center">Needs Triage</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Task distribution -->
-                            <div class="sm:col-span-2 md:col-span-4 lg:col-span-2 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                <div class="flex flex-col sm:flex-row items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Task Distribution</div>
-                                    <div class="mt-3 sm:mt-0 sm:ml-2">
-                                        <mat-button-toggle-group
-                                            value="this-week"
-                                            #taskDistributionWeekSelector="matButtonToggleGroup">
-                                            <mat-button-toggle value="last-week">Last Week</mat-button-toggle>
-                                            <mat-button-toggle value="this-week">This Week</mat-button-toggle>
-                                        </mat-button-toggle-group>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col flex-auto mt-6">
-                                    <apx-chart
-                                        class="flex-auto w-full h-80"
-                                        [chart]="chartTaskDistribution.chart"
-                                        [labels]="chartTaskDistribution.labels"
-                                        [legend]="chartTaskDistribution.legend"
-                                        [plotOptions]="chartTaskDistribution.plotOptions"
-                                        [series]="chartTaskDistribution.series[taskDistributionWeekSelector.value]"
-                                        [states]="chartTaskDistribution.states"
-                                        [stroke]="chartTaskDistribution.stroke"
-                                        [theme]="chartTaskDistribution.theme"
-                                        [tooltip]="chartTaskDistribution.tooltip"
-                                        [yaxis]="chartTaskDistribution.yaxis"></apx-chart>
-                                </div>
-                                <div class="grid grid-cols-2 border-t divide-x -m-6 mt-4 bg-gray-50 dark:bg-transparent">
-                                    <div class="flex flex-col items-center justify-center p-6 sm:p-8">
-                                        <div class="text-5xl font-semibold leading-none tracking-tighter">
-                                            {{data.taskDistribution.overview[taskDistributionWeekSelector.value]['new']}}
-                                        </div>
-                                        <div class="mt-1 text-center text-secondary">New tasks</div>
-                                    </div>
-                                    <div class="flex flex-col items-center justify-center p-6 sm:p-8">
-                                        <div class="text-5xl font-semibold leading-none tracking-tighter">
-                                            {{data.taskDistribution.overview[taskDistributionWeekSelector.value]['completed']}}
-                                        </div>
-                                        <div class="mt-1 text-center text-secondary">Completed tasks</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Schedule -->
-                            <div class="sm:col-span-2 md:col-span-4 lg:col-span-2 flex flex-col flex-auto p-6 bg-card shadow rounded-2xl overflow-hidden">
-                                <div class="flex flex-col sm:flex-row items-start justify-between">
-                                    <div class="text-lg font-medium tracking-tight leading-6 truncate">Schedule</div>
-                                    <div class="mt-3 sm:mt-0 sm:ml-2">
-                                        <mat-button-toggle-group
-                                            value="today"
-                                            #scheduleDaySelector="matButtonToggleGroup">
-                                            <mat-button-toggle value="today">Today</mat-button-toggle>
-                                            <mat-button-toggle value="tomorrow">Tomorrow</mat-button-toggle>
-                                        </mat-button-toggle-group>
-                                    </div>
-                                </div>
-                                <div class="flex flex-col mt-2 divide-y">
-                                    <ng-container *ngFor="let scheduleItem of data.schedule[scheduleDaySelector.value]; trackBy: trackByFn">
-                                        <div class="flex flex-row items-center justify-between py-4 px-0.5">
-                                            <div class="flex flex-col">
-                                                <div class="font-medium">{{scheduleItem.title}}</div>
-                                                <div class="flex flex-col sm:flex-row sm:items-center -ml-0.5 mt-2 sm:mt-1 space-y-1 sm:space-y-0 sm:space-x-3">
-                                                    <ng-container *ngIf="scheduleItem.time">
-                                                        <div class="flex items-center">
-                                                            <mat-icon
-                                                                class="icon-size-5 text-hint"
-                                                                [svgIcon]="'heroicons_solid:clock'"></mat-icon>
-                                                            <div class="ml-1.5 text-md text-secondary">{{scheduleItem.time}}</div>
-                                                        </div>
-                                                    </ng-container>
-                                                    <ng-container *ngIf="scheduleItem.location">
-                                                        <div class="flex items-center">
-                                                            <mat-icon
-                                                                class="icon-size-5 text-hint"
-                                                                [svgIcon]="'heroicons_solid:location-marker'"></mat-icon>
-                                                            <div class="ml-1.5 text-md text-secondary">{{scheduleItem.location}}</div>
-                                                        </div>
-                                                    </ng-container>
-                                                </div>
-                                            </div>
-                                            <button mat-icon-button>
-                                                <mat-icon [svgIcon]="'heroicons_solid:chevron-right'"></mat-icon>
-                                            </button>
-                                        </div>
-                                    </ng-container>
-                                </div>
-                            </div>
-                        </div>
+                        
+                            
+                              <iframe width="1400" height="800" src="https://app.powerbi.com/view?r=eyJrIjoiOGQ5Y2ZmMjktMzc5Yy00MjYzLWE1OWQtMjAxZDYyODliZjViIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9" frameborder="0"   allowFullScreen="true" ></iframe>
+                           
+                        
                     </ng-template>
                 </mat-tab>
 
                 <!-- Users -->
                 <mat-tab label="Users">
                     <ng-template matTabContent>
-                        
-                            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-                                <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" data-bs-toggle="modal" data-bs-target="#exampleModal2">Sent To All</button>
-                                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
-                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                                        <tr>
-                                            <th scope="col" class="py-3 px-6">
-                                                User_Name
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Email
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Phone
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Verification
-                                            </th>
-                                            <th scope="col" class="py-3 px-6">
-                                                Action
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr *ngFor="let i of Users" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600" data-accordion-target="#accordion-collapse-body-1" aria-expanded="true" aria-controls="accordion-collapse-body-1">
-                                            <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                                {{i.Name}}
-                                            </th>
-                                            <td class="py-4 px-6">
-                                                {{i.Email}}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                {{i.Phone}}
-                                            </td>
-                                            <td class="py-4 px-6" >    
-                                                {{i.Verified}}
-                                            </td>
-                                            <td class="py-4 px-6">
-                                                 <!-- Button trigger modal -->
-                                                <button  type="button" [disabled]="i.Verified != 'Waiting Verified'" [attr.id]="i.Id" (click)="getEvent(i.Id)" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"  >Verify</button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>       
-                            </div>
+                        <div
+                            class="overflow-x-auto relative shadow-md sm:rounded-lg"
+                        >
+                            <button
+                                type="button"
+                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                                data-bs-toggle="modal"
+                                data-bs-target="#exampleModal2"
+                            >
+                                Sent To All
+                            </button>
+                            <table
+                                class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+                            >
+                                <thead
+                                    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+                                >
+                                    <tr>
+                                        <th scope="col" class="py-3 px-6">
+                                            User_Name
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Email
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Phone
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Verification
+                                        </th>
+                                        <th scope="col" class="py-3 px-6">
+                                            Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr
+                                        *ngFor="let i of Users"
+                                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                                        data-accordion-target="#accordion-collapse-body-1"
+                                        aria-expanded="true"
+                                        aria-controls="accordion-collapse-body-1"
+                                    >
+                                        <th
+                                            scope="row"
+                                            class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                                        >
+                                            {{ i.Name }}
+                                        </th>
+                                        <td class="py-4 px-6">
+                                            {{ i.Email }}
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            {{ i.Phone }}
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            {{ i.Verified }}
+                                        </td>
+                                        <td class="py-4 px-6">
+                                            <!-- Button trigger modal -->
+                                            <button
+                                                type="button"
+                                                [disabled]="
+                                                    i.Verified !=
+                                                    'Waiting Verified'
+                                                "
+                                                [attr.id]="i.Id"
+                                                (click)="getEvent(i.Id)"
+                                                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                                            >
+                                                Verify
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </ng-template>
                 </mat-tab>
-                
+
                 <!-- Team -->
                 <mat-tab label="Team">
                     <ng-template matTabContent>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0">
-                            <ng-container *ngFor="let member of data.teamMembers">
-                                <div class="flex flex-col flex-auto items-center bg-card shadow rounded-2xl overflow-hidden">
+                        <div
+                            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full min-w-0"
+                        >
+                            <ng-container
+                                *ngFor="let member of data.teamMembers"
+                            >
+                                <div
+                                    class="flex flex-col flex-auto items-center bg-card shadow rounded-2xl overflow-hidden"
+                                >
                                     <!-- Avatar & Info -->
-                                    <div class="flex flex-col flex-auto w-full p-8 text-center">
-                                        <div class="w-32 h-32 mx-auto rounded-full overflow-hidden">
+                                    <div
+                                        class="flex flex-col flex-auto w-full p-8 text-center"
+                                    >
+                                        <div
+                                            class="w-32 h-32 mx-auto rounded-full overflow-hidden"
+                                        >
                                             <img
                                                 class="w-full h-full object-cover"
-                                                [src]="member.avatar">
+                                                [src]="member.avatar"
+                                            />
                                         </div>
-                                        <div class="mt-6 font-medium">{{member.name}}</div>
-                                        <div class="text-secondary">{{member.title}}</div>
+                                        <div class="mt-6 font-medium">
+                                            {{ member.name }}
+                                        </div>
+                                        <div class="text-secondary">
+                                            {{ member.title }}
+                                        </div>
                                     </div>
                                     <!-- Email & Phone -->
-                                    <div class="flex items-center w-full border-t divide-x">
+                                    <div
+                                        class="flex items-center w-full border-t divide-x"
+                                    >
                                         <a
                                             class="flex flex-auto items-center justify-center py-4 hover:bg-hover"
-                                            [href]="'mailto:' + member.email">
+                                            [href]="'mailto:' + member.email"
+                                        >
                                             <mat-icon
                                                 class="icon-size-5 text-hint"
-                                                [svgIcon]="'heroicons_solid:mail'"></mat-icon>
+                                                [svgIcon]="
+                                                    'heroicons_solid:mail'
+                                                "
+                                            ></mat-icon>
                                             <span class="ml-2">Email</span>
                                         </a>
                                         <a
                                             class="flex flex-auto items-center justify-center py-4 hover:bg-hover"
-                                            [href]="'tel:' + member.phone">
+                                            [href]="'tel:' + member.phone"
+                                        >
                                             <mat-icon
                                                 class="icon-size-5 text-hint"
-                                                [svgIcon]="'heroicons_solid:phone'"></mat-icon>
+                                                [svgIcon]="
+                                                    'heroicons_solid:phone'
+                                                "
+                                            ></mat-icon>
                                             <span class="ml-2">Call</span>
                                         </a>
                                     </div>
@@ -378,9 +354,7 @@
                         </div>
                     </ng-template>
                 </mat-tab>
-
             </mat-tab-group>
         </div>
     </div>
-
 </div>

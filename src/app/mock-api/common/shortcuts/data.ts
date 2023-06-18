@@ -50,10 +50,10 @@ export const shortcuts = [
     },
     {
         id         : '56a0a561-17e7-40b3-bd75-0b6cef230b7e',
-        label      : 'Tasks',
-        description: '12 unfinished tasks',
+        label      : 'freelance',
+        description: '12 unfinished freelance',
         icon       : 'heroicons_outline:check-circle',
-        link       : '/apps/tasks',
+        link       : '/apps/freelance',
         useRouter  : true
     },
     {

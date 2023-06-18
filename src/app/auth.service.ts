@@ -11,6 +11,7 @@ import { UserService } from './core/user/user.service';
 export class AuthService {
 
   BaseURL:string = 'https://workplusnode.onrender.com/'
+
   private _authenticated: boolean = false;
   constructor(private _http:HttpClient, private _userService:UserService) { }
 
@@ -24,9 +25,9 @@ export class AuthService {
     return this._http.post(`${this.BaseURL}signin`, Data).pipe(
         switchMap((response: any) => {
 
-          
             // Store the access token in the local storage
             localStorage.setItem('Token',response.token.accessToken)
+            
 
             // Set the authenticated flag to true
             this._authenticated = true;
@@ -34,9 +35,13 @@ export class AuthService {
             // Store the user on the user service
             this._userService.user = response.user;
 
+            
+
             // Return a new observable with the response
             return of(response);
         })
     );
   }
+
+
 }

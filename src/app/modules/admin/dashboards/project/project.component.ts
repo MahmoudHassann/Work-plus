@@ -138,6 +138,7 @@ export class ProjectComponent implements OnInit, OnDestroy, OnChanges {
         
     }
     
+
     obj:any = []
     getVerfication(id: string) {
         this._userService.getVerfication(id).subscribe({

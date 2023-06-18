@@ -132,13 +132,8 @@ export const appRoutes: Route[] = [
                                 'app/modules/admin/dashboards/project/project.module'
                             ).then((m) => m.ProjectModule),
                     },
-                    {
-                        path: 'analytics',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/dashboards/analytics/analytics.module'
-                            ).then((m) => m.AnalyticsModule),
-                    },
+                    {path: 'finance', loadChildren: () => import('app/modules/admin/dashboards/finance/finance.module').then(m => m.FinanceModule)},
+                    
                 ],
             },
             // Apps
@@ -152,24 +147,20 @@ export const appRoutes: Route[] = [
                                 'app/modules/admin/apps/chat/chat.module'
                             ).then((m) => m.ChatModule),
                     },
+                    
                     {
-                        path: 'notes',
+                        path: 'freelance',
                         loadChildren: () =>
                             import(
-                                'app/modules/admin/apps/notes/notes.module'
-                            ).then((m) => m.NotesModule),
-                    },
-                    {
-                        path: 'tasks',
-                        loadChildren: () =>
-                            import(
-                                'app/modules/admin/apps/tasks/tasks.module'
-                            ).then((m) => m.TasksModule),
+                                'app/modules/admin/apps/freelance/freelance.module'
+                            ).then((m) => m.freelanceModule),
                     },
                     {path: 'reviews', loadChildren: () => import('app/modules/admin/apps/reviews/reviews.module').then(m => m.reviewsModule)},
                     {path: 'discuss', loadChildren: () => import('app/modules/admin/apps/discuss/discuss.module').then(m => m.discussModule)},
                     {path: 'jobs', loadChildren: () => import('app/modules/admin/apps/jobs/jobs.module').then(m => m.jobsModule)},
-                    {path: 'help-center', loadChildren: () => import('app/modules/admin/apps/help-center/help-center.module').then(m => m.HelpCenterModule)},
+                    {path: 'categories', loadChildren: () => import('app/modules/admin/apps/categories/categories.module').then(m => m.categoriesModule)},
+                    {path: 'subcategories', loadChildren: () => import('app/modules/admin/apps/subcategories/subcategories.module').then(m => m.subcategoriesModule)},
+                    
                 ],
             },
            
